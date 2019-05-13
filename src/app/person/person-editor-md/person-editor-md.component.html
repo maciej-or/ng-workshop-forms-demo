@@ -2,6 +2,8 @@
 <form [formGroup]="personForm" (ngSubmit)="onSumbit()" autocomplete="off">
   <mat-form-field>
     <input type="text" formControlName="firstName" matInput placeholder="First name" required>
+    <mat-error *ngIf="personForm.get('firstName').hasError('required')">Please enter a name</mat-error>
+    <mat-error *ngIf="personForm.get('firstName').hasError('minlength')">Please enter at least 3 characters</mat-error>
   </mat-form-field>
 
   <mat-form-field>

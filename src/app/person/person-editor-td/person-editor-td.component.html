@@ -1,7 +1,9 @@
 <h3>template driven form</h3>
 <form autocomplete="off" (ngSubmit)="onSubmit()" #personForm="ngForm">
   <mat-form-field>
-    <input type="text" [(ngModel)]="person.firstName" name="firstName" matInput placeholder="First name" required minlength="3">
+    <input type="text" [(ngModel)]="person.firstName" name="firstName" matInput placeholder="First name" required minlength="3" #firstName="ngModel">
+    <mat-error *ngIf="firstName.hasError('required')">Please enter a name</mat-error>
+    <mat-error *ngIf="firstName.hasError('minlength')">Please enter at least 3 characters</mat-error>    
   </mat-form-field>
 
   <mat-form-field>
