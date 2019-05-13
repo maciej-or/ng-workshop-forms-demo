@@ -7,6 +7,7 @@ import { PersonEditorMdComponent } from './person/person-editor-md/person-editor
 import { PersonEditorTdComponent } from './person/person-editor-td/person-editor-td.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,12 @@ import { MatInputModule } from '@angular/material';
     PersonEditorTdComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

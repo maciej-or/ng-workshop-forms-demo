@@ -39,4 +39,8 @@ export class PersonEditorMdComponent implements OnInit {
     });
   }
 
+  onSumbit() {
+    console.log(this.personForm.value);
+  }
+
 }

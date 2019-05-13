@@ -16,4 +16,7 @@ export class PersonEditorTdComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    console.log('submit td', this.person);
+  }
 }
