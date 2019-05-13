@@ -8,6 +8,7 @@ import { PersonEditorTdComponent } from './person/person-editor-td/person-editor
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,11 @@ import { MatButtonModule } from '@angular/material/button';
     PersonEditorTdComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     MatInputModule,
     MatButtonModule
   ],

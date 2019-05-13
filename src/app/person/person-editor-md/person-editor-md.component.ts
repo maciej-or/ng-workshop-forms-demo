@@ -34,13 +34,16 @@ export class PersonEditorMdComponent implements OnInit {
     });
 
     this.personForm.valueChanges.subscribe(value => {
-      console.log(value);
       this.personChange.emit(value);
     });
   }
 
   onSumbit() {
     console.log(this.personForm.value);
+  }
+
+  getErrors(controlName: string) {
+    return this.personForm.controls[controlName].errors;
   }
 
 }

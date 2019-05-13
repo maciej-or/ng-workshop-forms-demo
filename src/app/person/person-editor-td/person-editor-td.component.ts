@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { IPerson } from '../person.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-person-editor-td',
@@ -11,6 +12,9 @@ export class PersonEditorTdComponent implements OnInit {
   @Input()
   person: IPerson;
 
+  @ViewChild('personForm')
+  personForm: NgForm;
+
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +22,11 @@ export class PersonEditorTdComponent implements OnInit {
 
   onSubmit() {
     console.log('submit td', this.person);
+  }
+
+  getErrors(controlName: string) {
+    if (this.personForm.controls[controlName]) {
+      return this.personForm.controls[controlName].errors;
+    }
   }
 }
