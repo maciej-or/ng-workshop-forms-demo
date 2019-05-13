@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IPerson } from '../person.model';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { validatePhone } from 'src/app/shared/validators/phone.validator';
 
 @Component({
   selector: 'app-person-editor-md',
@@ -21,7 +22,7 @@ export class PersonEditorMdComponent implements OnInit {
 
   ngOnInit() {
 
-    const { firstName, lastName } = this.person;
+    const { firstName, lastName, phone } = this.person;
 
     // this.personForm = new FormGroup({
     //   firstName: new FormControl(this.person.firstName),
@@ -30,7 +31,8 @@ export class PersonEditorMdComponent implements OnInit {
 
     this.personForm = this.fb.group({
       firstName: [firstName, [Validators.required, Validators.minLength(3)] ],
-      lastName: [lastName, [Validators.required, Validators.minLength(2)] ]
+      lastName: [lastName, [Validators.required, Validators.minLength(2)] ],
+      phone: [phone, [validatePhone]]
     });
 
     this.personForm.valueChanges.subscribe(value => {

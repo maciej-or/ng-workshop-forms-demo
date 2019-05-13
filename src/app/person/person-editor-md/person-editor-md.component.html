@@ -1,6 +1,6 @@
 <h3>reactive form (model driven)</h3>
 <form [formGroup]="personForm" (ngSubmit)="onSumbit()" autocomplete="off">
-  
+
   <mat-form-field>
     <input type="text" formControlName="firstName" matInput placeholder="First name" required>
     <mat-error *ngIf="personForm.get('firstName').hasError('required')">Please enter a name</mat-error>
@@ -9,6 +9,10 @@
 
   <app-form-field [errors]="getErrors('lastName')">
     <input type="text" formControlName="lastName" matInput placeholder="Last name" required>
+  </app-form-field>
+
+  <app-form-field [errors]="getErrors('phone')">
+    <input type="text" formControlName="phone" matInput placeholder="Phone">
   </app-form-field>
 
   <div>
