@@ -11,7 +11,8 @@ export class AppComponent {
 
   person: IPerson = {
     firstName: 'Bolesław',
-    lastName: 'Chrobry'
+    lastName: 'Chrobry',
+    dateOfBirth: new Date()
   };
 
 }

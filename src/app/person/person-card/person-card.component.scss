@@ -1,0 +1,10 @@
+:host {
+  text-align: left;
+  .mat-card {
+    margin: 2em;
+    .example-header-image {
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+    }
+  }
+}
