@@ -22,7 +22,7 @@ export class PersonEditorMdComponent implements OnInit {
 
   ngOnInit() {
 
-    const { firstName, lastName, phone } = this.person;
+    const { firstName, lastName, phone, middleName } = this.person;
 
     // this.personForm = new FormGroup({
     //   firstName: new FormControl(this.person.firstName),
@@ -31,6 +31,7 @@ export class PersonEditorMdComponent implements OnInit {
 
     this.personForm = this.fb.group({
       firstName: [firstName, [Validators.required, Validators.minLength(3)] ],
+      middleName: [middleName ],
       lastName: [lastName, [Validators.required, Validators.minLength(2)] ],
       phone: [phone, [validatePhone]]
     });

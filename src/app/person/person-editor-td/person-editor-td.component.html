@@ -6,6 +6,10 @@
     <mat-error *ngIf="firstName.hasError('minlength')">Please enter at least 3 characters</mat-error>    
   </mat-form-field>
 
+  <app-form-field [errors]="getErrors('middleName')">
+    <input type="text" [(ngModel)]="person.middleName" name="middleName" matInput placeholder="Middle name">
+  </app-form-field>
+    
   <app-form-field [errors]="getErrors('lastName')">
     <input type="text" [(ngModel)]="person.lastName" name="lastName" matInput placeholder="Last name" required minlength="2">
   </app-form-field>
