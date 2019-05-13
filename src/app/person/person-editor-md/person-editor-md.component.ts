@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IPerson } from '../person.model';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-person-editor-md',
@@ -29,8 +29,8 @@ export class PersonEditorMdComponent implements OnInit {
     // });
 
     this.personForm = this.fb.group({
-      firstName: [firstName],
-      lastName: [lastName]
+      firstName: [firstName, [Validators.required, Validators.minLength(3)] ],
+      lastName: [lastName, [Validators.required, Validators.minLength(2)] ]
     });
 
     this.personForm.valueChanges.subscribe(value => {
