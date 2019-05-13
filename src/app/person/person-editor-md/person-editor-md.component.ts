@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IPerson } from '../person.model';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-person-editor-md',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonEditorMdComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  person: IPerson;
+
+  @Output()
+  personChange = new EventEmitter();
+
+  personForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    const { firstName, lastName } = this.person;
+
+    // this.personForm = new FormGroup({
+    //   firstName: new FormControl(this.person.firstName),
+    //   lastName: new FormControl(this.person.lastName)
+    // });
+
+    this.personForm = this.fb.group({
+      firstName: [firstName],
+      lastName: [lastName]
+    });
+
+    this.personForm.valueChanges.subscribe(value => {
+      console.log(value);
+      this.personChange.emit(value);
+    });
   }
 
 }

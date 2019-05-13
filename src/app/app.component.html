@@ -1,10 +1,15 @@
-<div style="text-align:center">
+<div class="app">
   <h1>
     Welcome to {{ title }}!
   </h1>
-</div>
 
-<div>
-  <app-person-editor-td [person]=person></app-person-editor-td>
-  <app-person-editor-md></app-person-editor-md>
+  <div class="forms">
+    <app-person-editor-td [person]="person"></app-person-editor-td>
+    <app-person-editor-md [(person)]="person"></app-person-editor-md>
+  </div>
+
+  <div class="log">
+    <h3>model</h3>
+    {{person | json}}
+  </div>
 </div>

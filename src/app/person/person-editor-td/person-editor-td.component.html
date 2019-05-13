@@ -1,4 +1,14 @@
 <h3>template driven form</h3>
-<form>
-  <input type="text" [(ngModel)]="person.firstName" name="firstName">
+<form autocomplete="off">
+  <mat-form-field>
+    <input type="text" [(ngModel)]="person.firstName" name="firstName"
+      matInput placeholder="First name"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+      <input type="text" [(ngModel)]="person.lastName" name="lastName"
+        matInput placeholder="Last name"
+      >
+    </mat-form-field>  
 </form>

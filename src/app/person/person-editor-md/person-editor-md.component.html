@@ -1,3 +1,14 @@
-<p>
-  person-editor-md works!
-</p>
+<h3>reactive form (model driven)</h3>
+<form [formGroup]="personForm" autocomplete="off">
+  <mat-form-field>
+    <input type="text" formControlName="firstName"
+      matInput placeholder="First name"
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+      <input type="text" formControlName="lastName"
+        matInput placeholder="Last name"
+      >
+    </mat-form-field>  
+</form>
